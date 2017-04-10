@@ -7,7 +7,7 @@ var ToDoList = React.createClass({
     var renderToDos = () => {
       return toDos.map((todo) => {
         return (
-          <ToDo key={todo.id} {...todo}/>
+          <ToDo key={todo.id} {...todo} onCompleted={this.props.onCompleted}/>
         );
       });
     };
