@@ -9,7 +9,7 @@ var ToDo = React.createClass({
         this.props.onCompleted(id);
       }}>
         <input type="checkbox" checked={completed} id={id}/>
-        <label htmlFor={id}>{text}</label>
+        {text}
       </div>
     )
   }
