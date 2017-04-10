@@ -47,12 +47,13 @@ var ToDoApp = React.createClass({
     });
   },
   render: function() {
-    var {toDos} = this.state;
+    var {toDos, showCompleted, searchText} = this.state;
+    var filteredToDos = ToDoAPI.filterToDos(toDos, showCompleted, searchText);
 
     return (
       <div>
         <ToDoSearch onSearch={this.handleSearch}/>
-        <ToDoList toDos={toDos} onCompleted={this.handleCompleted}/>
+        <ToDoList toDos={filteredToDos} onCompleted={this.handleCompleted}/>
         <AddToDo onAddToDo={this.handleAddToDo}/>
       </div>
     )
