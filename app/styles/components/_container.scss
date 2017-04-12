@@ -1,13 +1,13 @@
 .container {
-  background-color: $nicks-net-light-green;
-  border: 1px solid $nicks-net-light-green-border;
+  background-color: $nnc-light-green;
+  border: 1px solid $nnc-light-green-border;
   border-radius: 5px;
   padding: 0;
   margin-bottom: 2rem;
 }
 
 .container__header {
-  border-bottom: 1px solid $nicks-net-light-green-border;
+  border-bottom: 1px solid $nnc-light-green-border;
   padding: 1rem;
 
   label {
@@ -22,13 +22,13 @@
 }
 
 .container__message {
-  color: $nicks-net-neon-green;
+  color: $nnc-neon-green;
   margin: 2rem auto;
   text-align: center;
 
 }
 
 .container__footer {
-  border-top: 1px solid $nicks-net-light-green-border;
+  border-top: 1px solid $nnc-light-green-border;
   padding: 1rem 1rem 0 1rem;
 }

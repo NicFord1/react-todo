@@ -38,6 +38,8 @@ export var toDosReducer = (state = [], action) => {
             completed: nextCompleted,
             completedAt: nextCompleted ? moment().unix() : undefined
           };
+        } else {
+          return toDo;
         }
       });
     default: return state;

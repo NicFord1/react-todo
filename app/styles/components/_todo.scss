@@ -14,7 +14,7 @@
   }
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: $nnc-aqua-green;
   }
 }
 
@@ -24,7 +24,7 @@
 
 .todo-completed {
   p, .todo__subtext {
-    color: $nicks-net-neon-green;
+    color: $nnc-neon-green;
     text-decoration: line-through;
   }
 }
