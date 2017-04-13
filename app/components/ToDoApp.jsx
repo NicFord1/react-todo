@@ -3,7 +3,7 @@ var uuid = require('node-uuid');
 var moment = require('moment');
 
 var ToDoAPI = require('ToDoAPI');
-var ToDoSearch = require('ToDoSearch');
+import ToDoSearch from 'ToDoSearch';
 import ToDoList from 'ToDoList';
 import AddToDo from 'AddToDo';
 
