@@ -4,8 +4,8 @@ var {connect} = require('react-redux');
 var ToDoAPI = require('ToDoAPI');
 import ToDo from 'ToDo';
 
-export var ToDoList = React.createClass({
-  render: function() {
+export class ToDoList extends React.Component {
+  render() {
     var {toDos, showCompleted, searchText} = this.props;
     var renderToDos = () => {
       if (toDos.length === 0) {
@@ -14,18 +14,12 @@ export var ToDoList = React.createClass({
         );
       }
       return ToDoAPI.filterToDos(toDos, showCompleted, searchText).map((toDo) => {
-        return (
-          <ToDo key={toDo.id} {...toDo}/>
-        );
+        return (<ToDo key={toDo.id} {...toDo}/>);
       });
     };
 
-    return (
-      <div>
-        {renderToDos()}
-      </div>
-    )
+    return (<div>{renderToDos()}</div>);
   }
-});
+}
 
 export default connect((state) => {return state;})(ToDoList);
