@@ -20,7 +20,7 @@ export var ToDo = React.createClass({
         dispatch(actions.toggleToDo(id));
       }}>
         <div>
-          <input type="checkbox" checked={completed} id={id}/>
+          <input type="checkbox" defaultChecked={completed} id={id}/>
         </div>
         <div>
           <p>{text}</p>

@@ -23,6 +23,20 @@ describe('Actions', () => {
     expect(res).toEqual(action);
   });
 
+  it('should generate add ToDos action', () => {
+    var toDos = [{
+      id: 111,
+      text: 'anything',
+      completed: false,
+      completedAt: undefined,
+      createdAt: 31985
+    }];
+    var action = {type: 'ADD_TODOS', toDos};
+    var res = actions.addToDos(action.toDos);
+
+    expect(res).toEqual(action);
+  });
+
   it('should generate toggle ToDo action', () => {
     var action = {type: 'TOGGLE_TODO', id: 1};
     var res = actions.toggleToDo(action.id);

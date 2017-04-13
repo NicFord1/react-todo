@@ -42,6 +42,7 @@ export var toDosReducer = (state = [], action) => {
           return toDo;
         }
       });
+    case 'ADD_TODOS': return [...state, ...action.toDos];
     default: return state;
   }
 };
