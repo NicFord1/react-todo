@@ -33,6 +33,26 @@ export var addToDos = (toDos) => {
   return {type: 'ADD_TODOS', toDos};
 };
 
+export var startAddToDos = () => {
+  return (dispatch, getState) => {
+    var toDosRef = firebaseRef.child('toDos');
+
+    return toDosRef.once('value').then((snapshot) => {
+      var toDos = snapshot.val() || {};
+      var parsedToDos = [];
+
+      Object.keys(toDos).forEach((toDoID) => {
+        parsedToDos.push({
+          id: toDoID,
+          ...toDos[toDoID]
+        });
+      });
+
+      dispatch(addToDos(parsedToDos));
+    });
+  };
+};
+
 export var updateToDo = (id, updates) => {
   return {type: 'UPDATE_TODO', id, updates};
 };

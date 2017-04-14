@@ -8,15 +8,7 @@ import * as actions from 'app/actions/actions';
 var store = require('app/store/configureStore').configure();
 import ToDoAPI from 'app/api/ToDoAPI';
 
-store.subscribe(() => {
-  var state = store.getState();
-
-  console.log('New State', state);
-  ToDoAPI.setToDos(state.toDos);
-});
-
-var initialToDos = ToDoAPI.getToDos();
-store.dispatch(actions.addToDos(initialToDos));
+store.dispatch(actions.startAddToDos());
 
 //Load Foundation
 $(document).foundation();
