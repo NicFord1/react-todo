@@ -23,17 +23,10 @@ module.exports = {
   resolve: {
     modules: [
       __dirname,
-      'node_modules',
-      './app/components',
-      './app/api'
+      'node_modules'
     ],
-    alias: {
-      applicationStyles: 'app/styles/app.scss',
-      actions: 'app/actions/actions.jsx',
-      reducers: 'app/reducers/reducers.jsx',
-      configureStore: 'app/store/configureStore.jsx'
-    },
-    extensions: ['.js', '.jsx']
+    alias: {app: 'app'},
+    extensions: ['.js', '.jsx', '.css', '.scss']
   },
   module: {
     rules: [

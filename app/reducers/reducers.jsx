@@ -1,5 +1,5 @@
-var uuid = require('node-uuid');
-var moment = require('moment');
+import uuid from 'node-uuid';
+import moment from 'moment';
 
 export var searchTextReducer = (state = '', action) => {
   switch (action.type) {
@@ -20,13 +20,7 @@ export var toDosReducer = (state = [], action) => {
     case 'ADD_TODO':
       return [
         ...state,
-        {
-          id: uuid(),
-          text: action.text,
-          completed: false,
-          createdAt: moment().unix(),
-          completedAt: undefined
-        }
+        action.toDo
       ];
     case 'TOGGLE_TODO':
       return state.map((toDo) => {

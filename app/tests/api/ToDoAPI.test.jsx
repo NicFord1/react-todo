@@ -1,6 +1,6 @@
-var expect = require('expect');
+import expect from 'expect';
 
-var ToDoAPI = require('ToDoAPI');
+import ToDoAPI from 'app/api/ToDoAPI';
 
 describe('ToDoAPI', () => {
   beforeEach(() => {

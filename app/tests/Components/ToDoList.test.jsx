@@ -1,13 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var {Provider} =require('react-redux');
+import {Provider} from 'react-redux';
 var TestUtils = require('react-dom/test-utils');
-var expect = require('expect');
+import expect from 'expect';
 var $ = require('jquery');
 
-import {configure} from 'configureStore';
-import ConnectedToDoList, {ToDoList} from 'ToDoList';
-import ConnectedToDo, {ToDo} from 'ToDo';
+import {configure} from 'app/store/configureStore';
+import ConnectedToDoList, {ToDoList} from 'app/components/ToDoList';
+import ConnectedToDo, {ToDo} from 'app/components/ToDo';
 
 describe('ToDoList', () => {
   it('should exist', () => {

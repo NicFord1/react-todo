@@ -1,10 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-dom/test-utils');
-var expect = require('expect');
+import expect from 'expect';
 var $ = require('jQuery');
 
-var {AddToDo} = require('AddToDo');
+import * as actions from 'app/actions/actions';
+
+var {AddToDo} = require('app/components/AddToDo');
 
 describe('AddToDo', () => {
   it('should exist', () => {
@@ -16,7 +18,7 @@ describe('AddToDo', () => {
     var addToDo = TestUtils.renderIntoDocument(<AddToDo dispatch={spy}/>);
     var $el = $(ReactDOM.findDOMNode(addToDo));
     var testToDoText = 'Clean Litter Boxes';
-    var action = {type: 'ADD_TODO', text: testToDoText};
+    var action = actions.startAddToDo(testToDoText);
 
     addToDo.refs.toDoText.value = testToDoText;
     TestUtils.Simulate.submit($el.find('form')[0]);

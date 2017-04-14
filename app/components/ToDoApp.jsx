@@ -1,10 +1,10 @@
 var React = require('react');
-var uuid = require('node-uuid');
-var moment = require('moment');
+import uuid from 'node-uuid';
+import moment from 'moment';
 
-import ToDoSearch from 'ToDoSearch';
-import ToDoList from 'ToDoList';
-import AddToDo from 'AddToDo';
+import ToDoSearch from 'app/components/ToDoSearch';
+import ToDoList from 'app/components/ToDoList';
+import AddToDo from 'app/components/AddToDo';
 
 class ToDoApp extends React.Component {
   render() {

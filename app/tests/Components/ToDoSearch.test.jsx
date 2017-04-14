@@ -1,10 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-dom/test-utils');
-var expect = require('expect');
+import expect from 'expect';
 var $ = require('jQuery');
 
-import {ToDoSearch} from 'ToDoSearch';
+import {ToDoSearch} from 'app/components/ToDoSearch';
 
 describe('ToDoSearch', () => {
   it('should exist', () => {

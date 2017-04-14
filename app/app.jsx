@@ -1,12 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var {Provider} = require('react-redux');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+import {Provider} from 'react-redux';
+import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
-var ToDoApp = require('ToDoApp');
-var actions = require('actions');
-var store = require('configureStore').configure();
-var ToDoAPI = require('ToDoAPI');
+import ToDoApp from 'app/components/ToDoApp';
+import * as actions from 'app/actions/actions';
+var store = require('app/store/configureStore').configure();
+import ToDoAPI from 'app/api/ToDoAPI';
 
 store.subscribe(() => {
   var state = store.getState();
@@ -22,7 +22,7 @@ store.dispatch(actions.addToDos(initialToDos));
 $(document).foundation();
 
 //App CSS
-require('applicationStyles');
+require('app/styles/app.scss');
 
 //Main App Code
 ReactDOM.render(

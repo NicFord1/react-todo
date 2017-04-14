@@ -1,8 +1,8 @@
 var React = require('react');
 var {connect} = require('react-redux');
 
-var ToDoAPI = require('ToDoAPI');
-import ToDo from 'ToDo';
+import ToDoAPI from 'app/api/ToDoAPI';
+import ToDo from 'app/components/ToDo';
 
 export class ToDoList extends React.Component {
   render() {

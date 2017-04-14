@@ -1,7 +1,7 @@
 var React = require('react');
 var {connect} = require('react-redux');
 
-var actions = require('actions');
+import * as actions from 'app/actions/actions';
 
 class BaseComponent extends React.Component {
   _bind(...methods) {
@@ -14,7 +14,7 @@ export class AddToDo extends BaseComponent {
     super();
     this._bind('handleSubmit');
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
     var {dispatch} = this.props;
@@ -22,7 +22,7 @@ export class AddToDo extends BaseComponent {
 
     if (toDoText.length > 0) {
       this.refs.toDoText.value = '';
-      dispatch(actions.addToDo(toDoText));
+      dispatch(actions.startAddToDo(toDoText));
     } else {
       this.refs.toDoText.focus();
     }

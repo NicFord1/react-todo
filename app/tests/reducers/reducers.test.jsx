@@ -1,8 +1,8 @@
-var expect = require('expect');
-var df = require('deep-freeze-strict');
-var moment = require('moment');
+import expect from 'expect';
+import df from 'deep-freeze-strict';
+import moment from 'moment';
 
-var reducers = require('reducers');
+import * as reducers from 'app/reducers/reducers';
 
 describe('Reducers', () => {
   describe('searchTextReducer', () => {
@@ -25,11 +25,19 @@ describe('Reducers', () => {
 
   describe('toDosReducer', () => {
     it('should add new ToDo', () => {
-      var action = {type: 'ADD_TODO', text: 'Walk the Dog'};
+      var action = {
+        type: 'ADD_TODO',
+        toDo: {
+          id: 'abc123',
+          text: 'some task',
+          completed: false,
+          createdAt: 10301985
+        }
+      };
       var res = reducers.toDosReducer(df([]), df(action));
 
       expect(res.length).toEqual(1);
-      expect(res[0].text).toEqual(action.text);
+      expect(res[0]).toEqual(action.toDo);
     });
 
     it('should toggle completed status of ToDo', () => {

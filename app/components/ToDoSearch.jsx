@@ -1,7 +1,7 @@
 var React = require('react');
 var {connect} = require('react-redux');
 
-var actions = require('actions');
+import * as actions from 'app/actions/actions';
 
 export class ToDoSearch extends React.Component {
   render() {
