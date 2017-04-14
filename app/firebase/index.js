@@ -3,12 +3,12 @@ import firebase from 'firebase';
 try {
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBNXOIqRRCXcOj0lRKBdAhbV-QICaisGWw",
-    authDomain: "nicks-net-react-todo-app.firebaseapp.com",
-    databaseURL: "https://nicks-net-react-todo-app.firebaseio.com",
-    projectId: "nicks-net-react-todo-app",
-    storageBucket: "nicks-net-react-todo-app.appspot.com",
-    messagingSenderId: "104484554120"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID
   };
   firebase.initializeApp(config);
 } catch(e) {
