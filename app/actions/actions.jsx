@@ -33,6 +33,20 @@ export var addToDos = (toDos) => {
   return {type: 'ADD_TODOS', toDos};
 };
 
-export var toggleToDo = (id) => {
-  return {type: 'TOGGLE_TODO', id};
+export var updateToDo = (id, updates) => {
+  return {type: 'UPDATE_TODO', id, updates};
+};
+
+export var startToggleToDo = (id, completed) => {
+  return (dispatch, getState) => {
+    var toDoRef = firebaseRef.child(`toDos/${id}`);
+    var updates = {
+      completed,
+      completedAt: completed ? moment().unix() : null
+    };
+
+    return toDoRef.update(updates).then(() => {
+      dispatch(updateToDo(id, updates));
+    });
+  };
 };

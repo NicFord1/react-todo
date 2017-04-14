@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var TestUtils = require('react-dom/test-utils');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-dom/test-utils';
 import expect from 'expect';
-var $ = require('jQuery');
+import $ from 'jQuery';
 
 import {ToDoSearch} from 'app/components/ToDoSearch';
 

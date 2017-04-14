@@ -1,5 +1,5 @@
-var React = require('react');
-var {connect} = require('react-redux');
+import React from 'react';
+import {connect} from 'react-redux';
 
 import ToDoAPI from 'app/api/ToDoAPI';
 import ToDo from 'app/components/ToDo';

@@ -1,5 +1,5 @@
-var React = require('react');
-var {connect} = require('react-redux');
+import React from 'react';
+import {connect} from 'react-redux';
 import moment from 'moment';
 
 import * as actions from 'app/actions/actions';
@@ -17,7 +17,7 @@ export class ToDo extends React.Component {
 
     return (
       <div className={toDoClassName} onClick={() => {
-        dispatch(actions.toggleToDo(id));
+        dispatch(actions.startToggleToDo(id, !completed));
       }}>
         <div>
           <input type="checkbox" checked={completed} id={id}/>

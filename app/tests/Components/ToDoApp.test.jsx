@@ -1,9 +1,9 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-var TestUtils = require('react-dom/test-utils');
+import TestUtils from 'react-dom/test-utils';
 import expect from 'expect';
-var $ = require('jquery');
+import $ from 'jquery';
 
 import {configure} from 'app/store/configureStore';
 import ToDoApp from 'app/components/ToDoApp';

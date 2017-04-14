@@ -1,4 +1,4 @@
-var moment = require('moment');
+import moment from 'moment';
 
 console.log(moment().format());
 
@@ -13,4 +13,4 @@ var currentMoment = moment.unix(timestamp);
 console.log('Current moment: ', currentMoment.format('MMM D, YYYY @ HH:mm:ss'));
 
 // Challenge -- January 3rd, 2017 @ 12:13 AM
-console.log('Current moment challenge: ', currentMoment.format('MMMM Do, Y @ hh:mm A')); 
+console.log('Current moment challenge: ', currentMoment.format('MMMM Do, Y @ hh:mm A'));
