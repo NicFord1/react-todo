@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
+import Login from 'app/components/Login';
 import ToDoApp from 'app/components/ToDoApp';
 import * as actions from 'app/actions/actions';
 var store = require('app/store/configureStore').configure();
@@ -19,7 +20,12 @@ require('app/styles/app.scss');
 //Main App Code
 ReactDOM.render(
   <Provider store={store}>
-    <ToDoApp/>
+    <Router history={hashHistory}>
+      <Route path="/">
+        <Route path="/ToDo" component={ToDoApp}/>
+        <IndexRoute component={Login}/>
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('app')
 );

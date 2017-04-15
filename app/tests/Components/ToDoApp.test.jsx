@@ -6,7 +6,7 @@ import expect from 'expect';
 import $ from 'jquery';
 
 import {configure} from 'app/store/configureStore';
-import ToDoApp from 'app/components/ToDoApp';
+import {ToDoApp} from 'app/components/ToDoApp';
 import ToDoList from 'app/components/ToDoList';
 
 describe('ToDoApp', () => {

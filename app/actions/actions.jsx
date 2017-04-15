@@ -1,4 +1,4 @@
-import firebase, {firebaseRef} from 'app/firebase';
+import firebase, {firebaseRef, gitHubProvider, googleProvider} from 'app/firebase';
 import moment from 'moment';
 
 export var setSearchText = (searchText) => {
@@ -37,6 +37,20 @@ export var startAddToDos = () => {
   return (dispatch, getState) => {
     var toDosRef = firebaseRef.child('toDos');
 
+    //    return toDosRef.on('value', (snapshot) => {
+    // Allows for real-time update in client, though creates duplicates in ToDos &
+    // throws warning in console [Warning: flattenChildren(...): Encountered two
+    // children with the same key. Child keys must be unique; when two children
+    // share a key, only the first child will be used.
+    // in div (created by ToDoList)
+    // in ToDoList (created by Connect(ToDoList))
+    // in Connect(ToDoList) (created by ToDoApp)
+    // in div (created by ToDoApp)
+    // in div (created by ToDoApp)
+    // in div (created by ToDoApp)
+    // in div (created by ToDoApp)
+    // in ToDoApp
+    // in Provider]
     return toDosRef.once('value').then((snapshot) => {
       var toDos = snapshot.val() || {};
       var parsedToDos = [];
@@ -67,6 +81,24 @@ export var startToggleToDo = (id, completed) => {
 
     return toDoRef.update(updates).then(() => {
       dispatch(updateToDo(id, updates));
+    });
+  };
+};
+
+export var startLogin = (provider = gitHubProvider) => {
+  return (dispatch, getState) => {
+    return firebase.auth().signInWithPopup(provider).then((result) => {
+      console.log('Auth worked!', result);
+    }, (e) => {
+      console.log('Unable to Auth', e);
+    });
+  };
+};
+
+export var startLogout = () => {
+  return (dispatch, getState) => {
+    return firebase.auth().signOut().then(() => {
+      console.log('Logged Out!');
     });
   };
 };
