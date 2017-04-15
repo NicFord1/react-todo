@@ -21,7 +21,8 @@ export var startAddToDo = (text) => {
         createdAt: moment().unix(),
         completedAt: null
     };
-    var toDoRef = firebaseRef.child('toDos').push(toDo);
+    var uid = getState().auth.uid;
+    var toDoRef = firebaseRef.child(`users/${uid}/toDos`).push(toDo);
 
     return toDoRef.then(() => {
       dispatch(addToDo({...toDo, id: toDoRef.key}));
@@ -35,7 +36,8 @@ export var addToDos = (toDos) => {
 
 export var startAddToDos = () => {
   return (dispatch, getState) => {
-    var toDosRef = firebaseRef.child('toDos');
+    var uid = getState().auth.uid;
+    var toDosRef = firebaseRef.child(`users/${uid}/toDos`);
 
     //    return toDosRef.on('value', (snapshot) => {
     // Allows for real-time update in client, though creates duplicates in ToDos &
@@ -73,7 +75,8 @@ export var updateToDo = (id, updates) => {
 
 export var startToggleToDo = (id, completed) => {
   return (dispatch, getState) => {
-    var toDoRef = firebaseRef.child(`toDos/${id}`);
+    var uid = getState().auth.uid;
+    var toDoRef = firebaseRef.child(`users/${uid}/toDos/${id}`);
     var updates = {
       completed,
       completedAt: completed ? moment().unix() : null
