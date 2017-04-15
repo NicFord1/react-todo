@@ -31,6 +31,7 @@ export var toDosReducer = (state = [], action) => {
         }
       });
     case 'ADD_TODOS': return [...state, ...action.toDos];
+    case 'LOGOUT': return [];
     default: return state;
   }
 };

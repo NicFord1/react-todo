@@ -74,6 +74,20 @@ describe('Reducers', () => {
       expect(res.length).toEqual(1);
       expect(res[0]).toEqual(toDos[0]);
     });
+
+    it('should wipe ToDos on logout', () => {
+      var toDos = [{
+        id: 111,
+        text: 'anything',
+        completed: false,
+        completedAt: undefined,
+        createdAt: 31985
+      }];
+      var action = {type: 'LOGOUT'};
+      var res = reducers.toDosReducer(df(toDos), df(action));
+
+      expect(res.length).toEqual(0);
+    });
   });
 
   describe('authReducer', () => {
