@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {Route, Router, IndexRoute, hashHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 
-import Login from 'app/components/Login';
-import ToDoApp from 'app/components/ToDoApp';
 import * as actions from 'app/actions/actions';
 var store = require('app/store/configureStore').configure();
-import ToDoAPI from 'app/api/ToDoAPI';
+import firebase from 'app/firebase';
+import router from 'app/router';
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    hashHistory.push('/ToDo');
+  } else {
+    hashHistory.push('/');
+  }
+});
 
 store.dispatch(actions.startAddToDos());
 
@@ -20,12 +27,7 @@ require('app/styles/app.scss');
 //Main App Code
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/">
-        <Route path="/ToDo" component={ToDoApp}/>
-        <IndexRoute component={Login}/>
-      </Route>
-    </Router>
+    {router}
   </Provider>,
   document.getElementById('app')
 );
