@@ -9,21 +9,21 @@ var createMockStore = configureMockStore([thunk]);
 
 describe('Actions', () => {
   it('should generate set search text action', () => {
-    var action = {type: 'SET_SEARCH_TEXT', searchText: 'some search text'};
-    var res = actions.setSearchText(action.searchText);
+    const action = {type: 'SET_SEARCH_TEXT', searchText: 'some search text'};
+    const res = actions.setSearchText(action.searchText);
 
     expect(res).toEqual(action);
   });
 
   it('should generate toggle show completed action', () => {
-    var action = {type: 'TOGGLE_SHOW_COMPLETED'};
-    var res = actions.toggleShowCompleted();
+    const action = {type: 'TOGGLE_SHOW_COMPLETED'};
+    const res = actions.toggleShowCompleted();
 
     expect(res).toEqual(action);
   });
 
   it('should generate add ToDo action', () => {
-    var action = {
+    const action = {
       type: 'ADD_TODO',
       toDo: {
         id: '123abc',
@@ -32,7 +32,7 @@ describe('Actions', () => {
         createdAt: 10301985
       }
     };
-    var res = actions.addToDo(action.toDo);
+    const res = actions.addToDo(action.toDo);
 
     expect(res).toEqual(action);
   });
@@ -61,8 +61,8 @@ describe('Actions', () => {
       completedAt: null,
       createdAt: 10301985
     }];
-    var action = {type: 'ADD_TODOS', toDos};
-    var res = actions.addToDos(action.toDos);
+    const action = {type: 'ADD_TODOS', toDos};
+    const res = actions.addToDos(action.toDos);
 
     expect(res).toEqual(action);
   });
@@ -76,6 +76,22 @@ describe('Actions', () => {
     var res = actions.updateToDo(action.id, action.updates);
 
     expect(res).toEqual(action);
+  });
+
+  describe('Firebase Auth', () => {
+    it('should generate login action object', () => {
+      const action = {type: 'LOGIN', uid: '123abc'};
+      const res = actions.login(action.uid);
+
+      expect(res).toEqual(action);
+    });
+
+    it('should generate logout action object', () => {
+      const action = {type: 'LOGOUT'};
+      const res = actions.logout();
+
+      expect(res).toEqual(action);
+    });
   });
 
   describe('Tests with Firebase toDos', () => {
