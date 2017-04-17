@@ -10,8 +10,8 @@ class BaseComponent extends React.Component {
 }
 
 export class AddToDo extends BaseComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._bind('handleSubmit');
   }
 

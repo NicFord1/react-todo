@@ -46,6 +46,11 @@ describe('ToDoAPI', () => {
       expect(filteredToDos.length).toBe(2);
     });
 
+    it('should filter toDos by searchText if uppercase', () => {
+      var filteredToDos = ToDoAPI.filterToDos(toDos, true, 'Some');
+      expect(filteredToDos.length).toBe(2);
+    });
+
     it('should return all toDos if searchText is empty', () => {
       var filteredToDos = ToDoAPI.filterToDos(toDos, true, '');
       expect(filteredToDos.length).toBe(3);

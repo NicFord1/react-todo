@@ -11,7 +11,8 @@ module.exports = {
 
     // Filter by searchText
     filteredToDos = filteredToDos.filter((toDo) => {
-      return searchText.length === 0 || toDo.text.toLowerCase().indexOf(searchText) >= 0;
+      var text = toDo.text.toLowerCase();
+      return searchText.length === 0 || text.indexOf(searchText.toLowerCase()) >= 0;
     });
 
     // Sort toDos with Non-Completed First

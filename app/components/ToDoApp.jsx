@@ -13,8 +13,8 @@ class BaseComponent extends React.Component {
 }
 
 export class ToDoApp extends BaseComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._bind('onLogout');
   }
 

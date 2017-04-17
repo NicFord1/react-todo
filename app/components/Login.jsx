@@ -10,8 +10,8 @@ class BaseComponent extends React.Component {
 }
 
 export class Login extends BaseComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._bind('onLogin');
   }
 
@@ -20,7 +20,7 @@ export class Login extends BaseComponent {
 
     dispatch(actions.startLogin());
   }
-  
+
   render() {
     return (
       <div>
